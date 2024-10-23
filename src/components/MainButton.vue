@@ -8,19 +8,33 @@ const isDisabled = isLoading
 const buttonAttr = {
    class: 'text-xl bg-black text-white',
    id: '1',
+   type: 'button'
 }
 const renderIsLoading = () => {
    if (isLoading) {
-      return "Loading..."
+      return 'Loading...'
    } else {
       return nameButton
    }
 }
+const url = {
+   attr: 'href',
+   link: '/home'
+}
 </script>
 
 <template>
-   <!-- kita bisa menerapkan boolean atributes -->
-   <button :disabled="isDisabled" v-bind="buttonAttr" :id="`btn-${buttonAttr.id}`">{{ renderIsLoading() }}</button>
+   <!-- ini merupakan dynamic argument -->
+   <a :[url.attr]="url.link">
+      <!-- kita bisa menerapkan boolean atributes -->
+      <button
+         :disabled="isDisabled"
+         v-bind="buttonAttr"
+         :id="`btn-${buttonAttr.id}`"
+      >
+         {{ renderIsLoading() }}
+      </button>
+   </a>
 </template>
 
 <style scoped></style>
