@@ -1,10 +1,26 @@
 <!-- nama component sebaiknya ditulis dengan pascal case -->
 <script setup>
 const nameButton = 'Button'
+const isLoading = false
+// isDisabled mengikuti nilai dari isLoading
+const isDisabled = isLoading
+// dynamic binding multiple attributes
+const buttonAttr = {
+   class: 'text-xl bg-black text-white',
+   id: '1',
+}
+const renderIsLoading = () => {
+   if (isLoading) {
+      return "Loading..."
+   } else {
+      return nameButton
+   }
+}
 </script>
 
 <template>
-   <button>{{ nameButton }}</button>
+   <!-- kita bisa menerapkan boolean atributes -->
+   <button :disabled="isDisabled" v-bind="buttonAttr" :id="`btn-${buttonAttr.id}`">{{ renderIsLoading() }}</button>
 </template>
 
 <style scoped></style>
