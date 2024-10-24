@@ -1,6 +1,6 @@
 <!-- nama component sebaiknya ditulis dengan pascal case -->
 <script setup>
-const nameButton = 'Button'
+// const nameButton = 'Button'
 const isLoading = false
 // isDisabled mengikuti nilai dari isLoading
 const isDisabled = isLoading
@@ -8,19 +8,23 @@ const isDisabled = isLoading
 const buttonAttr = {
    class: 'text-xl bg-black text-white',
    id: '1',
-   type: 'button'
+   type: 'button',
 }
-const renderIsLoading = () => {
-   if (isLoading) {
-      return 'Loading...'
-   } else {
-      return nameButton
-   }
-}
+// const renderIsLoading = () => {
+//    if (isLoading) {
+//       return 'Loading...'
+//    } else {
+//       return nameButton
+//    }
+// }
 const url = {
    attr: 'href',
-   link: '/home'
+   link: '/home',
 }
+// pembuatan props, props ini menggunakan teknik destructuring dan props ini bisa menggunakan nilai default jika atribut di component tidak ada
+const { title = 'test' } = defineProps({
+   title: String,
+})
 </script>
 
 <template>
@@ -32,7 +36,11 @@ const url = {
          v-bind="buttonAttr"
          :id="`btn-${buttonAttr.id}`"
       >
-         {{ renderIsLoading() }}
+         <!-- pemanggilan function -->
+         <!-- {{ renderIsLoading() }} -->
+
+         <!-- pemanggilan props -->
+         {{ title }}
       </button>
    </a>
 </template>

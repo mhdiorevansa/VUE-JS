@@ -17,6 +17,8 @@ const classBlog = 'text-red'
    <!-- ini juga merupakan text interpolation. namun yang dirender adalah html, dengan menggunakan v-html -->
    <div v-html="blogPost"></div>
 
+   <MainButton :title="`button`" />
+   <MainButton :title="`submit`" />
    <MainButton />
    <OptionsComponent />
    <CompositionComponent />
